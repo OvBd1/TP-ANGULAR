@@ -1,0 +1,21 @@
+.meteo-card {
+  max-width: 480px;
+  margin: 2rem auto;
+  padding: 1.8rem;
+  border-radius: 1.5rem;
+  background: linear-gradient(135deg, #5b7cd8, #8b4dd4, #ff5b91);
+  color: #fff;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
+}
+
+.meteo-card h2 {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+}
+
+.meteo-card p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  opacity: 0.95;
+}

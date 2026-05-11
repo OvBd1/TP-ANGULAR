@@ -1,13 +1,1 @@
 /cours
-node_modules/
-dist/
-.angular/
-.vscode/
-*.swp
-*.swo
-*~
-.DS_Store
-.env
-.env.local
-.idea/
-package-lock.json
