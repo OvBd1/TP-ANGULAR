@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Inter:wght@400;500;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:        #0d0d1a;
+  --surface:   #161627;
+  --surface2:  #1e1e36;
+  --border:    #2a2a4a;
+  --accent:    #7c3aed;
+  --accent-2:  #a855f7;
+  --text:      #e2e2f0;
+  --text-muted:#8888aa;
+  --danger:    #ef4444;
+  --radius:    12px;
+  --shadow:    0 4px 24px rgba(0,0,0,.5);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--accent-2);
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: .875rem;
+  border: none;
+  border-radius: 8px;
+  padding: .5rem 1.1rem;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  transition: background .2s, transform .1s;
+
+  &:hover:not(:disabled) { background: var(--accent-2); }
+  &:active:not(:disabled) { transform: scale(.97); }
+  &:disabled {
+    opacity: .35;
+    cursor: not-allowed;
+  }
+}

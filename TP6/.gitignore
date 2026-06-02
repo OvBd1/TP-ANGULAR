@@ -1,0 +1,36 @@
+# ── Dépendances ───────────────────────────────────────────────
+**/node_modules/
+
+# ── Build / dist ──────────────────────────────────────────────
+**/dist/
+**/out-tsc/
+**/tmp/
+**/bazel-out/
+
+# ── Cache Angular ─────────────────────────────────────────────
+**/.angular/
+
+# ── Logs ──────────────────────────────────────────────────────
+npm-debug.log*
+yarn-error.log*
+*.log
+
+# ── Tests ─────────────────────────────────────────────────────
+**/coverage/
+**/__screenshots__/
+testem.log
+
+# ── IDE ───────────────────────────────────────────────────────
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/mcp.json
+*.sublime-workspace
+.history/
+
+# ── OS ────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db

@@ -1,0 +1,63 @@
+<a routerLink="/" class="retour">← Retour</a>
+
+@if (loading()) {
+  <p>⏳ Chargement…</p>
+} @else if (digimon(); as d) {
+  <div class="detail">
+    <div class="detail-header">
+      <img [src]="d.images?.[0]?.href" [alt]="d.name" />
+      <div class="info">
+        <h1>{{ d.name }}</h1>
+        <div class="tags">
+          @for (lvl of d.levels; track lvl) {
+            <span class="tag">{{ lvl }}</span>
+          }
+          @for (t of d.types; track t) {
+            <span class="tag">{{ t }}</span>
+          }
+          @for (a of d.attributes; track a) {
+            <span class="tag">{{ a }}</span>
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-body">
+      @if (d.descriptions?.length) {
+        <p class="description">{{ d.descriptions?.[0] }}</p>
+      }
+
+      <h3>Évolue depuis</h3>
+      <div class="evolutions">
+        @for (e of d.priorEvolutions; track e.id) {
+          <a [routerLink]="['/digimon', e.id]" class="evo-card">
+            <img [src]="e.image" [alt]="e.digimon" />
+            <div class="evo-info">
+              <strong>{{ e.digimon }}</strong>
+              <span>{{ e.condition }}</span>
+            </div>
+          </a>
+        } @empty {
+          <span class="empty">—</span>
+        }
+      </div>
+
+      <h3>Évolue vers</h3>
+      <div class="evolutions">
+        @for (e of d.nextEvolutions; track e.id) {
+          <a [routerLink]="['/digimon', e.id]" class="evo-card">
+            <img [src]="e.image" [alt]="e.digimon" />
+            <div class="evo-info">
+              <strong>{{ e.digimon }}</strong>
+              <span>{{ e.condition }}</span>
+            </div>
+          </a>
+        } @empty {
+          <span class="empty">—</span>
+        }
+      </div>
+    </div>
+  </div>
+} @else {
+  <p>Digimon introuvable.</p>
+}
