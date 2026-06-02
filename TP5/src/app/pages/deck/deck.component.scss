@@ -1,0 +1,58 @@
+a {
+	display: inline-block;
+	margin: 2rem 6vw 0.8rem;
+	color: var(--ink-700);
+}
+
+h1 {
+	margin: 0 6vw 1.5rem;
+}
+
+button {
+	margin: 0 6vw 1rem;
+}
+
+.deck {
+	list-style: none;
+	margin: 0 6vw 3rem;
+	padding: 0;
+	display: grid;
+	gap: 0.9rem;
+}
+
+.deck li {
+	display: grid;
+	grid-template-columns: 60px 1fr auto auto auto;
+	align-items: center;
+	gap: 0.8rem;
+	background: var(--card);
+	border-radius: var(--radius-md);
+	border: 1px solid var(--border);
+	padding: 0.7rem 1rem;
+	box-shadow: var(--shadow-soft);
+}
+
+.deck img {
+	border-radius: 10px;
+	background: #efe9df;
+}
+
+.deck .qte {
+	font-weight: 600;
+	color: var(--teal-ink);
+}
+
+.deck button {
+	margin: 0;
+}
+
+@media (max-width: 720px) {
+	.deck li {
+		grid-template-columns: 50px 1fr auto;
+		grid-auto-rows: auto;
+	}
+
+	.deck li button:first-of-type {
+		justify-self: end;
+	}
+}
