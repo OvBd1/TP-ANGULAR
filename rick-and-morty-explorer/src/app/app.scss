@@ -1,0 +1,42 @@
+.navbar {
+  display: flex; align-items: center; gap: 24px;
+  padding: 0 24px; height: 64px; background: #0d1117;
+  border-bottom: 2px solid #97ce4c33;
+  position: sticky; top: 0; z-index: 100;
+}
+
+.nav-brand {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; color: #97ce4c; font-weight: 800; font-size: 1.1rem;
+  white-space: nowrap;
+}
+.brand-icon { font-size: 1.5rem; }
+
+.nav-links {
+  display: flex; list-style: none; margin: 0; padding: 0; gap: 4px;
+  flex: 1; flex-wrap: wrap;
+}
+.nav-links a {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 14px; border-radius: 8px;
+  color: #aaa; text-decoration: none; font-size: 0.9rem;
+  transition: background 0.2s, color 0.2s; white-space: nowrap;
+}
+.nav-links a:hover { background: #16213e; color: #e0e0e0; }
+.nav-links a.active { background: #16213e; color: #97ce4c; }
+
+.fav-count {
+  background: #97ce4c; color: #1a1a2e; border-radius: 50%;
+  min-width: 20px; height: 20px; font-size: 0.75rem; font-weight: 700;
+  display: inline-flex; align-items: center; justify-content: center; padding: 0 4px;
+}
+
+.main-content { min-height: calc(100vh - 64px - 56px); padding: 32px 0; }
+
+.footer {
+  background: #0d1117; border-top: 1px solid #97ce4c22;
+  padding: 16px 24px; text-align: center;
+  p { margin: 0; color: #888; font-size: 0.85rem; }
+  a { color: #97ce4c; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+}

@@ -1,0 +1,29 @@
+<div class="page">
+  <h1 class="page-title">🌍 Lieux</h1>
+
+  @if (loading()) {
+    <app-loader />
+  } @else if (error()) {
+    <app-error-message [message]="error()!" (retry)="load()" />
+  } @else {
+    @if (info()) {
+      <p class="result-count">{{ info()!.count }} lieux répertoriés</p>
+    }
+    <div class="grid">
+      @for (loc of locations(); track loc.id) {
+        <a [routerLink]="['/locations', loc.id]" class="location-card">
+          <div class="card-icon">🌍</div>
+          <h3>{{ loc.name }}</h3>
+          <p class="type">{{ loc.type || 'Type inconnu' }}</p>
+          <p class="dimension">{{ loc.dimension || 'Dimension inconnue' }}</p>
+          <p class="residents">{{ loc.residents.length }} résidents</p>
+        </a>
+      } @empty {
+        <p class="empty">Aucun lieu trouvé.</p>
+      }
+    </div>
+    @if (info()) {
+      <app-paginator [currentPage]="currentPage()" [totalPages]="info()!.pages" (prev)="onPrev()" (next)="onNext()" />
+    }
+  }
+</div>

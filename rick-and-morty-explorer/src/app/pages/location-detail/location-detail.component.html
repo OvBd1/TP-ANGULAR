@@ -1,0 +1,40 @@
+@if (loading()) {
+  <app-loader />
+} @else if (error()) {
+  <app-error-message [message]="error()!" (retry)="load()" />
+} @else if (location()) {
+  <div class="detail-page">
+    <a routerLink="/locations" class="back-link">← Retour aux lieux</a>
+
+    <div class="location-hero">
+      <div class="location-icon">🌍</div>
+      <div class="location-info">
+        <h1>{{ location()!.name }}</h1>
+        <div class="badges">
+          <span class="badge">{{ location()!.type || 'Type inconnu' }}</span>
+          <span class="badge">{{ location()!.dimension || 'Dimension inconnue' }}</span>
+        </div>
+        <p class="residents-count">{{ location()!.residents.length }} résidents</p>
+      </div>
+    </div>
+
+    @if (residents().length > 0) {
+      <section class="residents-section">
+        <h2>👤 Résidents</h2>
+        <div class="grid">
+          @for (c of residents(); track c.id) {
+            <app-character-card
+              [character]="c"
+              [isFavori]="favoris.isFavori(c.id)"
+              (toggleFavori)="favoris.toggle($event)" />
+          }
+        </div>
+        @if (location()!.residents.length > 20) {
+          <p class="more-info">... et {{ location()!.residents.length - 20 }} autres résidents</p>
+        }
+      </section>
+    } @else if (!loading()) {
+      <p class="no-residents">Aucun résident connu dans ce lieu.</p>
+    }
+  </div>
+}

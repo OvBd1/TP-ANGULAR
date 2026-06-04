@@ -1,0 +1,49 @@
+<div class="page">
+  <div class="form-wrapper">
+    <div class="form-header">
+      <h1>✉️ Nous Contacter</h1>
+      <p>Une question sur l'univers de Rick & Morty ? Écrivez-nous !</p>
+    </div>
+
+    @if (success()) {
+      <div class="success-box">
+        <span class="success-icon">✅</span>
+        <h2>Message envoyé !</h2>
+        <p>Merci pour votre message. Nous vous répondrons très vite, Wubba Lubba Dub Dub !</p>
+      </div>
+    }
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+      <div class="field">
+        <label for="nom">Nom *</label>
+        <input id="nom" type="text" formControlName="nom" placeholder="Votre nom" />
+        @if (submitted() && nom.errors) {
+          @if (nom.errors['required']) { <p class="error-msg">Le nom est requis.</p> }
+          @else if (nom.errors['minlength']) { <p class="error-msg">Le nom doit faire au moins 3 caractères.</p> }
+        }
+      </div>
+
+      <div class="field">
+        <label for="email">Email *</label>
+        <input id="email" type="email" formControlName="email" placeholder="votre@email.com" />
+        @if (submitted() && email.errors) {
+          @if (email.errors['required']) { <p class="error-msg">L'email est requis.</p> }
+          @else if (email.errors['email']) { <p class="error-msg">Adresse email invalide.</p> }
+        }
+      </div>
+
+      <div class="field">
+        <label for="message">Message *</label>
+        <textarea id="message" formControlName="message" rows="5" placeholder="Votre message..."></textarea>
+        @if (submitted() && message.errors) {
+          @if (message.errors['required']) { <p class="error-msg">Le message est requis.</p> }
+          @else if (message.errors['minlength']) { <p class="error-msg">Le message doit faire au moins 10 caractères.</p> }
+        }
+      </div>
+
+      <button type="submit" [disabled]="form.invalid && submitted()">
+        Envoyer le message →
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="page">
+  <h1 class="page-title">👤 Personnages</h1>
+
+  <div class="filters">
+    <app-search-bar (searched)="onSearch($event)" />
+    <div class="status-filters">
+      @for (s of statuses; track s) {
+        <button
+          class="status-btn"
+          [class.active]="selectedStatus() === s"
+          (click)="onStatus(s)">
+          {{ statusLabels[s] }}
+        </button>
+      }
+    </div>
+  </div>
+
+  @if (loading()) {
+    <app-loader />
+  } @else if (error()) {
+    <app-error-message [message]="error()!" (retry)="onPrev()" />
+  } @else {
+    @if (info()) {
+      <p class="result-count">{{ info()!.count }} personnages trouvés</p>
+    }
+    <div class="grid">
+      @for (c of characters(); track c.id) {
+        <app-character-card
+          [character]="c"
+          [isFavori]="favoris.isFavori(c.id)"
+          (toggleFavori)="onToggleFavori($event)" />
+      } @empty {
+        <p class="empty">Aucun personnage trouvé.</p>
+      }
+    </div>
+    @if (info()) {
+      <app-paginator
+        [currentPage]="currentPage()"
+        [totalPages]="info()!.pages"
+        (prev)="onPrev()"
+        (next)="onNext()" />
+    }
+  }
+</div>

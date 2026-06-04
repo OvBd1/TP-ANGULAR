@@ -1,0 +1,77 @@
+@if (loading()) {
+  <app-loader />
+} @else {
+  <div class="dashboard">
+    <header class="hero">
+      <div class="hero-content">
+        <h1>Rick &amp; Morty Explorer</h1>
+        <p>Explorez l'univers infini de Rick and Morty</p>
+      </div>
+    </header>
+
+    <section class="stats-grid">
+      <a routerLink="/characters" class="stat-card characters">
+        <span class="stat-icon">👤</span>
+        <span class="stat-value">{{ totalCharacters() }}</span>
+        <span class="stat-label">Personnages</span>
+      </a>
+      <a routerLink="/locations" class="stat-card locations">
+        <span class="stat-icon">🌍</span>
+        <span class="stat-value">{{ totalLocations() }}</span>
+        <span class="stat-label">Lieux</span>
+      </a>
+      <a routerLink="/episodes" class="stat-card episodes">
+        <span class="stat-icon">📺</span>
+        <span class="stat-value">{{ totalEpisodes() }}</span>
+        <span class="stat-label">Épisodes</span>
+      </a>
+      <a routerLink="/favoris" class="stat-card favoris">
+        <span class="stat-icon">⭐</span>
+        <span class="stat-value">{{ nombreFavoris() }}</span>
+        <span class="stat-label">Favoris</span>
+      </a>
+    </section>
+
+    @if (nombreFavoris() > 0) {
+      <section class="favoris-section">
+        <h2>Répartition des favoris par statut</h2>
+        <div class="statut-grid">
+          <div class="statut-badge alive">
+            <span>🟢 Vivant</span>
+            <strong>{{ parStatut().Alive }}</strong>
+          </div>
+          <div class="statut-badge dead">
+            <span>🔴 Mort</span>
+            <strong>{{ parStatut().Dead }}</strong>
+          </div>
+          <div class="statut-badge unknown">
+            <span>⚪ Inconnu</span>
+            <strong>{{ parStatut().unknown }}</strong>
+          </div>
+        </div>
+      </section>
+    }
+
+    <section class="nav-cards">
+      <h2>Explorer</h2>
+      <div class="nav-grid">
+        <a routerLink="/characters" class="nav-card">
+          <span>👤 Personnages</span>
+          <p>Parcourir tous les personnages</p>
+        </a>
+        <a routerLink="/locations" class="nav-card">
+          <span>🌍 Lieux</span>
+          <p>Découvrir les dimensions et planètes</p>
+        </a>
+        <a routerLink="/episodes" class="nav-card">
+          <span>📺 Épisodes</span>
+          <p>Retrouver tous les épisodes</p>
+        </a>
+        <a routerLink="/favoris" class="nav-card">
+          <span>⭐ Mes Favoris</span>
+          <p>Vos personnages favoris</p>
+        </a>
+      </div>
+    </section>
+  </div>
+}

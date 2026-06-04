@@ -1,0 +1,30 @@
+.page { max-width: 1200px; margin: 0 auto; padding: 0 16px 40px; }
+.page-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.page-title { color: #97ce4c; font-size: 2rem; margin: 0; }
+.count-badge {
+  background: #97ce4c; color: #1a1a2e; font-weight: 700;
+  border-radius: 50%; width: 32px; height: 32px; display: flex;
+  align-items: center; justify-content: center;
+}
+
+.stat-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+.badge {
+  padding: 6px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 600;
+}
+.badge.alive { background: #1a3d2a; color: #97ce4c; }
+.badge.dead { background: #3d1a1a; color: #f28b82; }
+.badge.unknown { background: #2a2a2a; color: #aaa; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+
+.empty-state {
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+  padding: 80px 40px; text-align: center;
+}
+.empty-icon { font-size: 5rem; color: #888; }
+.empty-state h2 { color: #e0e0e0; margin: 0; }
+.empty-state p { color: #888; max-width: 400px; }
+.btn-primary {
+  padding: 12px 28px; background: #97ce4c; color: #1a1a2e;
+  text-decoration: none; border-radius: 8px; font-weight: 700;
+}

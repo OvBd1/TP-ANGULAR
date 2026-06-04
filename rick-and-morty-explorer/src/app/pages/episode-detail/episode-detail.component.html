@@ -1,0 +1,35 @@
+@if (loading()) {
+  <app-loader />
+} @else if (error()) {
+  <app-error-message [message]="error()!" (retry)="load()" />
+} @else if (episode()) {
+  <div class="detail-page">
+    <a routerLink="/episodes" class="back-link">← Retour aux épisodes</a>
+
+    <div class="episode-hero">
+      <div>
+        <span class="ep-code">{{ episode()!.episode }}</span>
+        <h1>{{ episode()!.name }}</h1>
+        <p class="air-date">📅 Diffusé le {{ episode()!.air_date }}</p>
+        <p class="char-count">{{ episode()!.characters.length }} personnages</p>
+      </div>
+    </div>
+
+    @if (characters().length > 0) {
+      <section class="characters-section">
+        <h2>👤 Personnages de l'épisode</h2>
+        <div class="grid">
+          @for (c of characters(); track c.id) {
+            <app-character-card
+              [character]="c"
+              [isFavori]="favoris.isFavori(c.id)"
+              (toggleFavori)="favoris.toggle($event)" />
+          }
+        </div>
+        @if (episode()!.characters.length > 20) {
+          <p class="more-info">... et {{ episode()!.characters.length - 20 }} autres personnages</p>
+        }
+      </section>
+    }
+  </div>
+}

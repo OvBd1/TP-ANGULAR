@@ -1,0 +1,17 @@
+.page { max-width: 1200px; margin: 0 auto; padding: 0 16px 40px; }
+.page-title { color: #97ce4c; font-size: 2rem; margin-bottom: 24px; }
+.result-count { color: #888; margin-bottom: 20px; font-size: 0.9rem; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+.location-card {
+  display: block; padding: 24px; background: #16213e; border-radius: 12px;
+  text-decoration: none; color: #e0e0e0; border: 1px solid #0f3460;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.location-card:hover { border-color: #97ce4c; transform: translateY(-4px); }
+.card-icon { font-size: 2.5rem; margin-bottom: 12px; }
+h3 { margin: 0 0 8px; color: #97ce4c; font-size: 1.1rem; }
+.type { margin: 0 0 4px; color: #aaa; font-size: 0.9rem; }
+.dimension { margin: 0 0 8px; color: #888; font-size: 0.85rem; }
+.residents { margin: 0; font-size: 0.8rem; color: #97ce4c55; }
+.empty { color: #888; text-align: center; padding: 40px; grid-column: 1 / -1; }

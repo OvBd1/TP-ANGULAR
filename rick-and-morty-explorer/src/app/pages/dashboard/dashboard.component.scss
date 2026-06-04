@@ -1,0 +1,59 @@
+.dashboard { max-width: 1200px; margin: 0 auto; padding: 0 16px 40px; }
+
+.hero {
+  background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+  border-radius: 16px; padding: 60px 40px; text-align: center;
+  margin-bottom: 40px; border: 1px solid #97ce4c33;
+}
+.hero h1 { font-size: 2.8rem; color: #97ce4c; margin: 0 0 12px; }
+.hero p { font-size: 1.2rem; color: #aaa; margin: 0; }
+
+.stats-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px; margin-bottom: 40px;
+}
+.stat-card {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 28px 20px; border-radius: 12px; text-decoration: none;
+  color: #e0e0e0; transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid #0f3460;
+}
+.stat-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+.stat-card.characters { background: linear-gradient(135deg, #1a3a6e, #0f3460); }
+.stat-card.locations { background: linear-gradient(135deg, #1a4a2e, #0f3420); }
+.stat-card.episodes { background: linear-gradient(135deg, #4a1a3e, #2e0f30); }
+.stat-card.favoris { background: linear-gradient(135deg, #4a3a1a, #2e200f); }
+.stat-icon { font-size: 2rem; }
+.stat-value { font-size: 2.5rem; font-weight: 700; color: #97ce4c; }
+.stat-label { font-size: 0.9rem; color: #aaa; text-transform: uppercase; letter-spacing: 1px; }
+
+.favoris-section {
+  background: #16213e; border-radius: 12px; padding: 28px;
+  margin-bottom: 40px; border: 1px solid #0f3460;
+  h2 { color: #97ce4c; margin: 0 0 20px; }
+}
+.statut-grid { display: flex; gap: 16px; flex-wrap: wrap; }
+.statut-badge {
+  flex: 1; min-width: 120px; padding: 16px; border-radius: 10px;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  span { font-size: 0.9rem; }
+  strong { font-size: 1.8rem; color: #e0e0e0; }
+}
+.statut-badge.alive { background: #1a3d2a; }
+.statut-badge.dead { background: #3d1a1a; }
+.statut-badge.unknown { background: #2a2a2a; }
+
+.nav-cards {
+  h2 { color: #97ce4c; margin: 0 0 20px; }
+}
+.nav-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;
+}
+.nav-card {
+  display: block; padding: 24px; background: #16213e; border-radius: 12px;
+  text-decoration: none; color: #e0e0e0; border: 1px solid #0f3460;
+  transition: border-color 0.2s, transform 0.2s;
+  span { font-size: 1.1rem; font-weight: 600; display: block; margin-bottom: 8px; }
+  p { margin: 0; color: #888; font-size: 0.9rem; }
+}
+.nav-card:hover { border-color: #97ce4c; transform: translateY(-2px); }

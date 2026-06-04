@@ -1,0 +1,28 @@
+<div class="page">
+  <h1 class="page-title">📺 Épisodes</h1>
+
+  @if (loading()) {
+    <app-loader />
+  } @else if (error()) {
+    <app-error-message [message]="error()!" (retry)="load()" />
+  } @else {
+    @if (info()) {
+      <p class="result-count">{{ info()!.count }} épisodes au total</p>
+    }
+    <div class="grid">
+      @for (ep of episodes(); track ep.id) {
+        <a [routerLink]="['/episodes', ep.id]" class="episode-card">
+          <span class="ep-code">{{ ep.episode }}</span>
+          <h3>{{ ep.name }}</h3>
+          <p class="air-date">📅 {{ ep.air_date }}</p>
+          <p class="characters-count">{{ ep.characters.length }} personnages</p>
+        </a>
+      } @empty {
+        <p class="empty">Aucun épisode trouvé.</p>
+      }
+    </div>
+    @if (info()) {
+      <app-paginator [currentPage]="currentPage()" [totalPages]="info()!.pages" (prev)="onPrev()" (next)="onNext()" />
+    }
+  }
+</div>

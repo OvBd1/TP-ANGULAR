@@ -1,0 +1,22 @@
+.page { max-width: 1200px; margin: 0 auto; padding: 0 16px 40px; }
+.page-title { color: #97ce4c; font-size: 2rem; margin-bottom: 24px; }
+
+.filters {
+  display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px;
+}
+.status-filters { display: flex; gap: 10px; flex-wrap: wrap; }
+.status-btn {
+  padding: 8px 18px; border: 2px solid #0f3460; border-radius: 20px;
+  background: #16213e; color: #ccc; cursor: pointer; font-size: 0.9rem;
+  transition: all 0.2s;
+}
+.status-btn.active, .status-btn:hover { border-color: #97ce4c; color: #97ce4c; }
+
+.result-count { color: #888; margin-bottom: 20px; font-size: 0.9rem; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+.empty { color: #888; text-align: center; padding: 40px; grid-column: 1 / -1; }

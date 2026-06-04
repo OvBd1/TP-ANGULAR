@@ -1,0 +1,29 @@
+<nav class="navbar">
+  <a routerLink="/dashboard" class="nav-brand">
+    <span class="brand-icon">🛸</span>
+    <span class="brand-name">Rick &amp; Morty</span>
+  </a>
+  <ul class="nav-links">
+    <li><a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">🏠 Accueil</a></li>
+    <li><a routerLink="/characters" routerLinkActive="active">👤 Personnages</a></li>
+    <li><a routerLink="/locations" routerLinkActive="active">🌍 Lieux</a></li>
+    <li><a routerLink="/episodes" routerLinkActive="active">📺 Épisodes</a></li>
+    <li>
+      <a routerLink="/favoris" routerLinkActive="active">
+        ⭐ Favoris
+        @if (nombreFavoris() > 0) {
+          <span class="fav-count">{{ nombreFavoris() }}</span>
+        }
+      </a>
+    </li>
+    <li><a routerLink="/contact" routerLinkActive="active">✉️ Contact</a></li>
+  </ul>
+</nav>
+
+<main class="main-content">
+  <router-outlet />
+</main>
+
+<footer class="footer">
+  <p>Rick &amp; Morty Explorer — Données fournies par <a href="https://rickandmortyapi.com" target="_blank" rel="noopener">rickandmortyapi.com</a></p>
+</footer>

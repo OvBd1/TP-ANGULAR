@@ -1,0 +1,29 @@
+<div class="page">
+  <div class="page-header">
+    <h1 class="page-title">⭐ Mes Favoris</h1>
+    <span class="count-badge">{{ favoris.nombre() }}</span>
+  </div>
+
+  @if (favoris.nombre() === 0) {
+    <div class="empty-state">
+      <div class="empty-icon">☆</div>
+      <h2>Aucun favori pour l'instant</h2>
+      <p>Explorez les personnages et cliquez sur ⭐ pour les ajouter à vos favoris.</p>
+      <a routerLink="/characters" class="btn-primary">Voir les personnages</a>
+    </div>
+  } @else {
+    <div class="stat-row">
+      <span class="badge alive">🟢 Vivant : {{ favoris.parStatut().Alive }}</span>
+      <span class="badge dead">🔴 Mort : {{ favoris.parStatut().Dead }}</span>
+      <span class="badge unknown">⚪ Inconnu : {{ favoris.parStatut().unknown }}</span>
+    </div>
+    <div class="grid">
+      @for (c of favoris.favoris(); track c.id) {
+        <app-character-card
+          [character]="c"
+          [isFavori]="true"
+          (toggleFavori)="toggle($event)" />
+      }
+    </div>
+  }
+</div>

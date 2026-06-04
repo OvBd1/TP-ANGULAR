@@ -1,0 +1,45 @@
+.detail-page { max-width: 1000px; margin: 0 auto; padding: 0 16px 40px; }
+.back-link { color: #97ce4c; text-decoration: none; display: inline-block; margin-bottom: 24px; font-size: 0.95rem; }
+.back-link:hover { text-decoration: underline; }
+
+.hero-card {
+  display: flex; gap: 32px; background: #16213e; border-radius: 16px;
+  overflow: hidden; margin-bottom: 40px; border: 1px solid #0f3460;
+}
+.avatar { width: 280px; object-fit: cover; flex-shrink: 0; }
+.hero-info { padding: 28px; flex: 1; }
+.hero-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+h1 { margin: 0; color: #97ce4c; font-size: 2rem; }
+.fav-btn {
+  padding: 10px 20px; background: #0f3460; border: 2px solid #97ce4c;
+  color: #97ce4c; border-radius: 8px; cursor: pointer; font-size: 0.95rem;
+  white-space: nowrap; transition: all 0.2s;
+}
+.fav-btn:hover { background: #97ce4c; color: #1a1a2e; }
+
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.info-item { display: flex; flex-direction: column; gap: 4px; }
+.label { font-size: 0.75rem; text-transform: uppercase; color: #888; letter-spacing: 1px; }
+.link { color: #97ce4c; text-decoration: none; }
+.link:hover { text-decoration: underline; }
+
+.episodes-section {
+  h2 { color: #97ce4c; margin-bottom: 20px; }
+}
+.episodes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.episode-card {
+  display: flex; flex-direction: column; gap: 4px; padding: 14px;
+  background: #16213e; border-radius: 10px; text-decoration: none;
+  border: 1px solid #0f3460; transition: border-color 0.2s, transform 0.2s;
+}
+.episode-card:hover { border-color: #97ce4c; transform: translateY(-2px); }
+.ep-code { font-size: 0.75rem; color: #97ce4c; font-weight: 700; }
+.ep-name { color: #e0e0e0; font-size: 0.95rem; }
+.ep-date { font-size: 0.8rem; color: #888; }
+.more-info { color: #888; margin-top: 12px; font-size: 0.9rem; }
+
+@media (max-width: 640px) {
+  .hero-card { flex-direction: column; }
+  .avatar { width: 100%; max-height: 300px; }
+  .info-grid { grid-template-columns: 1fr; }
+}

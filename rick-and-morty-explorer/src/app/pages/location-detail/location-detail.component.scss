@@ -1,0 +1,20 @@
+.detail-page { max-width: 1000px; margin: 0 auto; padding: 0 16px 40px; }
+.back-link { color: #97ce4c; text-decoration: none; display: inline-block; margin-bottom: 24px; }
+.back-link:hover { text-decoration: underline; }
+
+.location-hero {
+  display: flex; align-items: center; gap: 28px; background: #16213e;
+  border-radius: 16px; padding: 32px; margin-bottom: 40px; border: 1px solid #0f3460;
+}
+.location-icon { font-size: 5rem; }
+.location-info { h1 { margin: 0 0 12px; color: #97ce4c; font-size: 2rem; } }
+.badges { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+.badge {
+  padding: 4px 14px; background: #0f3460; border-radius: 20px;
+  color: #97ce4c; font-size: 0.85rem; font-weight: 600;
+}
+.residents-count { margin: 0; color: #aaa; }
+
+.residents-section { h2 { color: #97ce4c; margin-bottom: 20px; } }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+.more-info, .no-residents { color: #888; margin-top: 16px; }

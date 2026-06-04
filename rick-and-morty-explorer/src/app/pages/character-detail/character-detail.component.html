@@ -1,0 +1,75 @@
+@if (loading()) {
+  <app-loader />
+} @else if (error()) {
+  <app-error-message [message]="error()!" (retry)="load()" />
+} @else if (character()) {
+  <div class="detail-page">
+    <a routerLink="/characters" class="back-link">← Retour aux personnages</a>
+
+    <div class="hero-card">
+      <img [src]="character()!.image" [alt]="character()!.name" class="avatar" />
+      <div class="hero-info">
+        <div class="hero-header">
+          <h1>{{ character()!.name }}</h1>
+          <button class="fav-btn" (click)="toggleFavori()">
+            {{ favoris.isFavori(character()!.id) ? '⭐ Favori' : '☆ Ajouter aux favoris' }}
+          </button>
+        </div>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="label">Statut</span>
+            <span>{{ character()!.status | status }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Espèce</span>
+            <span>{{ character()!.species }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Genre</span>
+            <span>{{ character()!.gender }}</span>
+          </div>
+          @if (character()!.type) {
+            <div class="info-item">
+              <span class="label">Type</span>
+              <span>{{ character()!.type }}</span>
+            </div>
+          }
+          <div class="info-item">
+            <span class="label">Origine</span>
+            @if (locationId(character()!.origin.url); as locId) {
+              <a [routerLink]="['/locations', locId]" class="link">{{ character()!.origin.name }}</a>
+            } @else {
+              <span>{{ character()!.origin.name }}</span>
+            }
+          </div>
+          <div class="info-item">
+            <span class="label">Lieu actuel</span>
+            @if (locationId(character()!.location.url); as locId) {
+              <a [routerLink]="['/locations', locId]" class="link">{{ character()!.location.name }}</a>
+            } @else {
+              <span>{{ character()!.location.name }}</span>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    @if (episodes().length > 0) {
+      <section class="episodes-section">
+        <h2>📺 Épisodes ({{ character()!.episode.length }})</h2>
+        <div class="episodes-grid">
+          @for (ep of episodes(); track ep.id) {
+            <a [routerLink]="['/episodes', ep.id]" class="episode-card">
+              <span class="ep-code">{{ ep.episode }}</span>
+              <span class="ep-name">{{ ep.name }}</span>
+              <span class="ep-date">{{ ep.air_date }}</span>
+            </a>
+          }
+        </div>
+        @if (character()!.episode.length > 20) {
+          <p class="more-info">... et {{ character()!.episode.length - 20 }} autres épisodes</p>
+        }
+      </section>
+    }
+  </div>
+}

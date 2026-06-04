@@ -1,0 +1,18 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0; padding: 0; height: 100%;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #1a1a2e;
+  color: #e0e0e0;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0d1117; }
+::-webkit-scrollbar-thumb { background: #97ce4c55; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #97ce4c; }
+
+a { color: inherit; }
+
+img { display: block; max-width: 100%; }
